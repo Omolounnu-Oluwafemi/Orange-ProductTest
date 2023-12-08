@@ -49,14 +49,13 @@ npm start
 ## Project Structure
 The project follows the structure below:
 
-your-project/
+orange-test/
+|-- public/
 |-- src/
-|   |-- components/
-|   |-- pages/
 |   |-- api/
+|   |-- components/
 |   |-- App.js
 |   |-- index.js
-|-- public/
 |-- README.md
 
 ## API Integration
