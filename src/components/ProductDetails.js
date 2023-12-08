@@ -38,17 +38,31 @@ border-radius: 10px 0 0 10px;
   width: 100%;
   height: 40vh;
   border-radius: 10px 0 0 10px;
+  padding: 20px;
 }
 `
 
 const CloseButton = styled.h1`
   position: absolute;
   z-index: 1;
-  margin-top: -320px;
-  margin-left: -120px;
-  font-size: 50px;
+  margin-top: -340px;
+  margin-left: -160px;
+  font-size: 40px;
   font-weight: 900;
+  color: #fff;
+  padding: 10px 15px;
+  background-color: red;
+  border-radius: 10px;
 
+  &:hover {
+     background-color: #f19340;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+    margin-top: -34.5%;
+    margin-left: -97px;
+  }
 `
 
 const ProductImage = styled.img`

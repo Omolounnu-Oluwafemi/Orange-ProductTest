@@ -67,7 +67,7 @@ export default function ProductList({ products }) {
     <Store>Orange Fashion Store</Store>
     <Container>
       {products.map((product,) => (
-        <Link to={`/products/${product.id}`} style={{textDecoration: "none"}}>
+        <Link to={`/products/${product.id}`} style={{textDecoration: "none"}} key={product.id}>
         <ProductHolder key={product.id} >
         <ProductIcon src={product.image} alt={product.title} />
         {/* <ProductNumber className="number">{product.id < 9 ? `0${product.id}` : product.id}</ProductNumber> */}
