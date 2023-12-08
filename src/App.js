@@ -1,16 +1,23 @@
-// src/App.js
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import ProductList from './components/roductLists';
-import ProductDetail from './components/ProductDetail';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import ProductList from './components/ProductLists';
+import fetchProducts from './api/Products';
+import ProductDetails from './components/ProductDetails';
+
 
 const App = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetchProducts().then(data => setProducts(data));
+  }, []);
+
   return (
     <Router>
-      <Switch>
-        <Route path="/" exact component={ProductList} />
-        <Route path="/products/:id" component={ProductDetail} />
-      </Switch>
+      <Routes>
+        <Route path="/" element={<ProductList products={products} />} />
+        <Route path="/products/:id" element={<ProductDetails products={products} />} />
+      </Routes>
     </Router>
   );
 };

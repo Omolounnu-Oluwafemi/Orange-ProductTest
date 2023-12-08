@@ -1,30 +1,91 @@
-// src/components/ProductList.js
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { styled } from "styled-components";
 import { Link } from 'react-router-dom';
-import productService from "../api/Products.js";
 
-const ProductList = () => {
-  const [products, setProducts] = useState([]);
+const Container = styled.div`
+display: grid;
+grid-template-columns: auto auto auto ;
+column-gap: 24px;
+justify-content: center;
+align-items: center;
+margin: 10px auto;
 
-  useEffect(() => {
-    // Fetch products from the mock API
-    productService.getProducts().then((data) => setProducts(data));
-  }, []);
 
+@media (max-width: 768px) {
+  grid-template-columns: auto auto;
+}
+
+@media (max-width: 576px) {
+  grid-template-columns: auto;
+}
+`;
+
+const Store = styled.h1`
+font-size: 40px;
+font-weight: 700;
+margin-bottom: 50px;
+
+@media (max-width: 768px) {
+  font-size: 32px;
+}
+
+@media (max-width: 576px) {
+  font-size: 24px;
+}
+`;
+
+const ProductHolder = styled.div`
+border: 1px solid #ced4da;
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 20px;
+padding: 40px;  
+gap: 20px;
+border: 1px solid orange;
+`;
+
+const ProductName = styled.h4`
+font-size: 15px;
+font-weight: 500;
+width: 100%;
+color: #212529;
+`
+const ProductIcon = styled.img`
+width: 50px;
+height: 50px;
+`
+
+
+
+
+
+
+export default function ProductList({ products }) {
   return (
-    <div>
-      <h1>Product List</h1>
-      {products.map((product) => (
-        <div key={product.id}>
-          <Link to={`/products/${product.id}`}>
-            <h3>{product.name}</h3>
-            <img src={product.image} alt={product.name} />
-            <p>{product.price}</p>
-          </Link>
+    <>
+    <Store>Orange Fashion Store</Store>
+    <Container>
+      {products.map((product,) => (
+        <Link to={`/products/${product.id}`} style={{textDecoration: "none"}}>
+        <ProductHolder key={product.id} >
+        <ProductIcon src={product.image} alt={product.title} />
+        {/* <ProductNumber className="number">{product.id < 9 ? `0${product.id}` : product.id}</ProductNumber> */}
+        <div>
+        <ProductName>{product.title}</ProductName>
+        <h1>${product.price}</h1>
         </div>
+      </ProductHolder>
+      </Link>
       ))}
-    </div>
+    </Container>
+    </>
   );
-};
+}
 
-export default ProductList;
+
+
+
+
+
+
