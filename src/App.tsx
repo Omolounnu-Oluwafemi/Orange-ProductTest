@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import ProductList from './components/ProductLists';
+import ProductList  from './components/ProductLists';
 import fetchProducts from './api/Products';
 import ProductDetails from './components/ProductDetails';
 

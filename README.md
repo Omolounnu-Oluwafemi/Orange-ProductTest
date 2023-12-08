@@ -4,8 +4,8 @@
 
 - Description
 - Getting Started
- * Prerequisites
- * Installation
+  -- Prerequisites
+  -- Installation
 - Project Structure
 - API Integration
 - Styling
@@ -22,8 +22,8 @@ This project is a React application developed as part of a technical test. It ju
 
 Before you can run the app, ensure you have the following installed:
 
-Node.js
-npm
+- Node.js
+- npm
 
 ### Installation
 
@@ -33,7 +33,7 @@ Clone the repository:
 Navigate to the project directory:
 
 ```bash
-cd your-project
+cd orange-test
 ```
 
 Install dependencies:

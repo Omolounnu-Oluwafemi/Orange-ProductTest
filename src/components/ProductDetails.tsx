@@ -2,6 +2,19 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link, useParams } from 'react-router-dom';
 
+interface Product {
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+  category: string;
+  image: string;
+}
+
+interface ProductDetailProps {
+  products: Product[];
+}
+
 const Container = styled.div`
   display: flex;
   align-items: center;
@@ -123,9 +136,9 @@ text-transform: uppercase;
 color: orange;
 `
 
-export default function ProductDetail({products}){
+const ProductDetail: React.FC<ProductDetailProps> = ({products}) =>{
   const { id } = useParams();
-const product = products.find(p => p.id === Number(id));
+  const product = products.find(p => p.id === Number(id));
 
   return product ? (
     <Container className="item">
@@ -147,3 +160,5 @@ const product = products.find(p => p.id === Number(id));
     <div>Product not found</div>
   );
 }
+
+export default ProductDetail;

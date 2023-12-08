@@ -56,32 +56,42 @@ width: 50px;
 height: 50px;
 `
 
+interface Product {
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+  category: string;
+  image: string;
+}
 
 
+interface ProductListProps {
+  products: Product[];
+}
 
-
-
-export default function ProductList({ products }) {
+const ProductList: React.FC<ProductListProps> = ({ products }) => {
   return (
     <>
-    <Store>Orange Fashion Store</Store>
-    <Container>
-      {products.map((product,) => (
-        <Link to={`/products/${product.id}`} style={{textDecoration: "none"}} key={product.id}>
-        <ProductHolder key={product.id} >
-        <ProductIcon src={product.image} alt={product.title} />
-        {/* <ProductNumber className="number">{product.id < 9 ? `0${product.id}` : product.id}</ProductNumber> */}
-        <div>
-        <ProductName>{product.title}</ProductName>
-        <h1>${product.price}</h1>
-        </div>
-      </ProductHolder>
-      </Link>
-      ))}
-    </Container>
+      <Store>Orange Fashion Store</Store>
+      <Container>
+        {products.map((product) => (
+          <Link to={`/products/${product.id}`} style={{textDecoration: "none"}} key={product.id}>
+            <ProductHolder key={product.id} >
+              <ProductIcon src={product.image} alt={product.title} />
+              <div>
+                <ProductName>{product.title}</ProductName>
+                <h1>${product.price}</h1>
+              </div>
+            </ProductHolder>
+          </Link>
+        ))}
+      </Container>
     </>
   );
 }
+
+export default ProductList;
 
 
 
