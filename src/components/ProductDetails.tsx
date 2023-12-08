@@ -138,7 +138,7 @@ color: orange;
 
 const ProductDetail: React.FC<ProductDetailProps> = ({products}) =>{
   const { id } = useParams();
-  const product = products.find(p => p.id === Number(id));
+const product = products.find(p => p.id === Number(id));
 
   return product ? (
     <Container className="item">

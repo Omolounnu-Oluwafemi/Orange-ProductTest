@@ -24,6 +24,7 @@ const Store = styled.h1`
 font-size: 40px;
 font-weight: 700;
 margin-bottom: 50px;
+text-align: center;
 
 @media (max-width: 768px) {
   font-size: 32px;
@@ -43,17 +44,32 @@ margin-bottom: 20px;
 padding: 40px;  
 gap: 20px;
 border: 1px solid orange;
+color: orange;
+
+&:hover {
+  background-color: #eda20b;
+  color: #ffffff !important;
+}
 `;
 
 const ProductName = styled.h4`
 font-size: 15px;
 font-weight: 500;
-width: 100%;
 color: #212529;
 `
 const ProductIcon = styled.img`
 width: 50px;
 height: 50px;
+opacity: 1; 
+  mix-blend-mode: multiply; 
+`
+const ProductDetails = styled.div`
+display: flex;
+flex-direction: column;
+gap: 10px;
+`
+const ProductPrice = styled.h1`
+}
 `
 
 interface Product {
@@ -79,10 +95,10 @@ const ProductList: React.FC<ProductListProps> = ({ products }) => {
           <Link to={`/products/${product.id}`} style={{textDecoration: "none"}} key={product.id}>
             <ProductHolder key={product.id} >
               <ProductIcon src={product.image} alt={product.title} />
-              <div>
+              <ProductDetails>
                 <ProductName>{product.title}</ProductName>
-                <h1>${product.price}</h1>
-              </div>
+                <ProductPrice>${product.price}</ProductPrice>
+              </ProductDetails>
             </ProductHolder>
           </Link>
         ))}
