@@ -40,6 +40,10 @@ Install dependencies:
 ```bash
 npm install
 ```
+Compile TypeScript to JavaScript:
+```bash
+npx tsc
+```
 
 Run the application:
 ```bash
