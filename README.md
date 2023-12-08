@@ -54,8 +54,8 @@ orange-test/
 |-- src/
 |   |-- api/
 |   |-- components/
-|   |-- App.js
-|   |-- index.js
+|   |-- App.tsx
+|   |-- index.tsx
 |-- README.md
 
 ## API Integration
